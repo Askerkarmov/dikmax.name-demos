@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Mask demo</title>
+
+    <style type="text/css">
+        body {
+            text-align: center;
+        }
+        button {
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: normal;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            color: #fff;
+            background: #428bca none;
+            border: 1px solid #357ebd;
+
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.33;
+            border-radius: 6px;
+        }
+
+        button:hover {
+            text-decoration: none;
+
+            color: #fff;
+            background-color: #3276b1;
+            border-color: #285e8e;
+        }
+
+        button:active {
+            outline: 0;
+            -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+            box-shadow: inset 0 3px 5px rgba(0,0,0,0.125);
+
+            color: #fff;
+            background: #3276b1 none;
+            border-color: #285e8e;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+        }
+
+        .github {
+            background-color: #ffffff;
+            -webkit-mask: url(github-icon.png);
+            -webkit-mask-size: 100%;
+        }
+
+        .black {
+            background-color: #000;
+        }
+
+        .gradient {
+            background: -webkit-linear-gradient(180deg, #f2f6f8 0%,#d8e1e7 50%,#b5c6d0 51%,#e0eff9 100%);
+        }
+    </style>
+</head>
+<body>
+    <p><img src="github-icon.png" alt="Иконка"/></p>
+
+    <button><i class="icon black github"></i> Button</button>
+    <button><i class="icon github"></i> Button</button>
+    <button><i class="icon gradient github"></i> Button</button>
+</body>
+</html>
