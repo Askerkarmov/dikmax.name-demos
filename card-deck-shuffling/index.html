@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Deck Shuffling Demo</title>
+
+    <link rel="stylesheet" type="text/css" href="cards/cards.css" media="screen" />
+    <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css" href="cards/cards-ie.css" media="screen" />
+    <![endif]-->
+    <!--[if IE 9]>
+    <link rel="stylesheet" type="text/css" href="cards/cards-ie9.css" media="screen" />
+    <![endif]-->
+
+    <style>
+        .controls {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="controls" >
+    <button class="shuffle">Shuffle</button>
+    <button class="sort">Sort</button>
+</div>
+
+<div class="table playingCards faceImages"></div>
+
+<script type="application/dart" src="main.dart"></script>
+<script type="text/javascript" src="packages/browser/dart.js"></script>
+</body>
+</html>
