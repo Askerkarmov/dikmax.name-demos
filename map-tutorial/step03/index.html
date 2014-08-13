@@ -39,7 +39,7 @@
         var countries = topojson.feature(world, world.objects.countries).features;
 
         // Рисуем карту
-        svg.selectAll('.country').data(countries).enter()
+        g.selectAll('.country').data(countries).enter()
                 .append('path')
                 .attr('class', 'country')
                 .attr('d', path);
