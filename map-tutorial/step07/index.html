@@ -74,6 +74,7 @@
     // Загружаем карту
     d3.json("world.json", function (error, world) {
         if (error) {
+            // На случай, если карта не загрузилась
             console.log(error);
             return;
         }
