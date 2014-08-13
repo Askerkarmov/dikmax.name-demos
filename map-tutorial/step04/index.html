@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Tutorial 01</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css"/>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+    <style>
+        .country {
+            fill: #ffffdd;
+            stroke: #226688;
+        }
+    </style>
+</head>
+<body>
+<script>
+    // Ширина и высота будущей карты
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+
+    // Создаём функцию проекции
+    var projection = d3.geo.winkel3();
+
+    // Создаем функцию, которая будет преобразовывать географические координаты в формат пути для элемента <path>
+    var path = d3.geo.path().projection(projection);
+
+    // Создаём элемент <svg>, где и будет рисоваться карта
+    var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+    // Создаем элемент группы <g>, в который будут вкладываться все другие элементы
+    var g = svg.append('g');
+
+    // Загружаем карту
+    d3.json("world.json", function (error, world) {
+        if (error) {
+            console.log(error);
+            return;
+        }
+
+        // Получаем массив стран из файла TopoJSON в формате GeoJSON
+        var countries = topojson.feature(world, world.objects.countries).features;
+
+        // Рисуем карту
+        g.selectAll('.country').data(countries).enter()
+                .append('path')
+                .attr('class', 'country')
+                .attr('d', path);
+    });
+</script>
+</body>
+</html>
