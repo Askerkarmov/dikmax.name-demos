@@ -84,7 +84,7 @@
         // Получаем массив стран из файла TopoJSON в формате GeoJSON
         var countries = topojson.feature(world, world.objects.countries).features;
 
-        // Рисуем карту
+        // Рисуем страны
         g.selectAll('.country').data(countries).enter()
                 .append('path')
                 .attr('class', 'country')
